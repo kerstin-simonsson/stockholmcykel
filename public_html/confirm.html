@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guided Bicycle Tours in Stockholm | Guidade Cykelturer i Stockholm - stockholmcykel.se</title>
+  <meta charset="utf-8">
+  <meta name="keywords" content="guidedtour,bicycletour,cykeltur,guided,tour,bike,sightseeing,stockholm,fahrrad,radfahren,cykla,sverige,radeln,sweden,schweden">
+  <meta http-equiv="content-language" content="en" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="SHORTCUT ICON" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+
+  <style>
+
+  body {
+    position: relative; 
+  }
+  .bg-1 h1,h2,h3 {
+    color: #f2a205;
+  }
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  .container {
+      padding: 30px 10px;
+  }
+  @media screen and (min-width: 480px) {
+    .container {
+        padding: 30px 80px;
+    }
+  }
+  footer {
+      background-color: #2d2d30;
+      color: #70d2dd;
+      width: 100%;
+      bottom: 0;
+      position: fixed;
+      padding: 10px 0px;
+  }
+  footer a:hover {
+      color: #fff;
+      text-decoration: none;
+  }
+  .banner {
+      width: auto;
+      height: 50px;
+      margin: 15px;
+  }
+  @media screen and (min-width: 480px) {
+    .banner {
+        height: 70px;
+        margin: 5px;
+    }
+  }
+  .thumbnail {
+      padding: 5px 5px 15px 5px;
+      border: 1px solid powderblue; 
+      border-radius:5;
+      transition: box-shadow 0.5s;
+  }
+  .thumbnail:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .thumbnail p {
+      margin-top: 15px;
+      color: #555;
+  }
+  .thumbnail h6 {
+      color: #fff;
+      background-color: powderblue;
+      padding: 12px;
+  }
+  #page_top {
+    height: 80px;
+  }
+  .section_intro {
+    /* to set with @media */
+  }
+
+  </style>
+</head>
+
+<body>
+
+<div id="page_top" class="container-fluid top text-center">
+  <div>
+    <a href="#">
+      <img class="banner" src="images/banner.png" alt="stockholmcykel.se"</img>
+    </a>   
+  </div>
+</div>
+
+<div id="section_confirmbooking" class="bg-1">
+  <div class="container">
+    <!-- First Row -->
+    <div class="row thumbnail">
+      <div class="col-sm-6">
+        <div>
+          <h2 class="text-center">Thank you for your booking!</h2>
+          <p><span style="font-size: 14px;">We will soon contact you with details of availability and the tour.</span></p>
+          <p><span style="font-size: 14px;">If you have any questions, please contact us on <span class="glyphicon glyphicon-envelope"></span><a href="mailto:info@stockholmcykel.se">info@stockholmcykel.se</a> 
+or <span class="glyphicon glyphicon-phone"></span>+46 70 313 9933, +46 76 945 1437</p>
+          <p class="text-center">Welcome to Stockholm!</p>
+          <p class="text-center">Stockholm Cykel</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="images/bildspel_stockholmsturen/gotgatasbacken_265.png" alt="G&ouml;tgatsbacken" width="265" height="265">
+                </div>
+
+                <div class="item">
+                  <img src="images/bildspel_stockholmsturen/kolonilotter_265.png" alt="Kolonilotter" width="265" height="265">
+                </div>
+    
+                <div class="item">
+                   <img src="images/bildspel_stockholmsturen/arstaviken_265.png" alt="Årstaviken" width="265" height="265">
+                </div>
+
+                <div class="item">
+                   <img src="images/bildspel_stockholmsturen/soder_265.png" alt="S&ouml;der" width="265" height="265">
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="text-center w3-small">
+  <span class="glyphicon glyphicon-map-marker"></span>&nbsp;Stockholm, Sweden
+  <span class="glyphicon glyphicon-phone"></span>&nbsp;+46 70 313 9933, +46 76 945 1437&nbsp;
+  <span class="glyphicon glyphicon-envelope"></span>&nbsp;<a href="mailto:info@stockholmcykel.se">info@stockholmcykel.se</a>&nbsp;
+  <span class="fa fa-instagram"></span>&nbsp;<a href="http://www.instagram.com/stockholmcykel">@stockholmcykel</a>
+</footer>
+
+</body>
+</html>
+
