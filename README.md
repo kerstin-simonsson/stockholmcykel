@@ -1,2 +1,2 @@
 # stockholmcykel
-Webbsite for bicycletours in Stockholm
+Webbsite for bicycle tours in Stockholm.
