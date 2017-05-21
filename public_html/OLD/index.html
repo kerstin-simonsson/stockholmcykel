@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bicycle Tours in Stockholm | Cykelturer i Stockholm - stockholmcykel.se</title>
+  <meta charset="utf-8">
+  <meta name="keywords" content="guidedtour,bicycletour,cykeltur,guided,tour,bike,sightseeing,stockholm,fahrrad,radfahren,cykla,sverige,radeln,sweden,schweden">
+  <meta http-equiv="content-language" content="en" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="SHORTCUT ICON" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:url" content="http://www.stockholmcykel.se/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bicycle Tours in Stockholm | Cykelturer i Stockholm - stockholmcykel.se" />
+  <meta property="og:description" content="Bicycle tours in Stockholm, Sweden" />
+  <meta property="og:image" content="http://www.stockholmcykel.se/images/banner.png" />
+
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+  <script src="https://www.jscache.com/wejs?wtype=socialButtonIcon&amp;uniq=457&amp;locationId=12072064&amp;color=green&amp;size=rect&amp;lang=en_US&amp;display_version=2"></script>
+  
+  <script>
+
+  var disableddates = ["4-13-2017"];
+  var theGuidedTour = "The Guided Stockholm Tour";
+  var selfGuidedDrottningholm = "Drottningholm - Self Guided Tour";
+ 
+  function DisableSpecificDates(date) {
+    var m = date.getMonth();
+    var d = date.getDate(); 
+    var y = date.getFullYear();
+    var currentdate = (m + 1) + '-' + d + '-' + y;
+    var day = date.getDay();
+
+    // Min max month
+    if (((m < 3) && (d < 31)) || (m > 8)) {
+      return [false];
+    }
+ 
+    var tour = $("#tourselector").val();
+    if (tour == theGuidedTour) {
+        // check disabled dates
+        for (var i = 0; i < disableddates.length; i++) {  
+          if ($.inArray(currentdate, disableddates) != -1 ) {
+            return [false];
+          } 
+        }
+        // Thursday is ok in april to august
+        var isValidThursday = (day == 4) && (m > 2) && (m < 8);
+        // Saturdays is ok in september
+        var isValidSaturday = (day == 6) && (m == 8);
+        var isValidExtraday = (d == 8) && (m == 3) && (y == 2017);
+        var isValidExtraday2 = (d == 14) && (m == 3) && (y == 2017);
+        return [isValidThursday || isValidSaturday || isValidExtraday || isValidExtraday2];
+        //return [(day == 4)];
+    }
+    else {
+        return [true];
+    }
+
+  }
+
+  $(function() {
+    $( "#datepicker" ).datepicker({
+    beforeShowDay: DisableSpecificDates
+    });
+  });
+  </script>
+
+  <script>
+  $(document).ready(function(){
+    $("#enableSubmitCheck").click(function(){
+        var isChecked = document.getElementById("enableSubmitCheck").checked;
+        document.getElementById("submitBtn").disabled = !isChecked;          
+    });
+  });
+  </script>
+
+
+  <style>
+  body {
+    position: relative; 
+  }
+  .affix {
+    top:0;
+    width: 100%;
+    z-index: 9999 !important;
+  }
+  .affix + .container-fluid {
+     padding-top: 80px;
+  }
+  .bg-1 h1,h2,h3 {
+    color: #f2a205;
+  }
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  .container {
+      padding: 30px 10px;
+  }
+  .container-fluid {
+    width: 100%;
+    padding: 0px;
+  }
+  @media screen and (min-width: 480px) {
+    .container {
+        padding: 30px 80px;
+    }
+  }
+  .footer {
+    background-color: #2d2d30;
+    color: #70d2dd;
+    padding: 10px;
+    width: 100%;
+  }
+  .footer a:hover {
+    color: #ffffff;
+  }
+  .banner {
+      width: auto;
+      height: 50px;
+      margin: 15px;
+  }
+  @media screen and (min-width: 480px) {
+    .banner {
+        height: 70px;
+        margin: 5px;
+    }
+  }
+  .list-group-item {
+      color: #777;
+  }
+  .list-group-item:first-child {
+      color: #fff;
+      background-color: powderblue;
+      border: none;
+      border-top-right-radius: 5;
+      border-top-left-radius: 5;
+  }
+  .list-group-item:last-child {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .marginbottom {
+    margin-bottom: 50px;
+  }
+  .navbar {
+      background-color: #838383;
+      padding: 0px 10px;
+      border: 0;
+  }
+  .navbar a {
+      color: #70d2dd;
+  }
+  .navbar a:hover {
+      color: #ffffff;
+  }
+  .navbar-toggle {
+      background-color: #70d2dd;
+  }
+  .icon-bar {
+      background-color: #ffffff;
+      color: #ffffff;
+  }
+  .thumbnail {
+      padding: 10px 5px 5px 10px;
+      border: 1px solid powderblue; 
+      border-radius:5;
+      transition: box-shadow 0.5s;
+      margin-top:25px;
+  }
+  .thumbnail:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .thumbnail p {
+      margin-top: 15px;
+      color: #555;
+  }
+  .thumbnail h6 {
+      color: #fff;
+      background-color: powderblue;
+      padding: 12px;
+  }
+  .btn {
+    margin: 15px 0;
+    color: #fff;
+  }
+  #page_top {
+    height:80px;
+  }
+  .section_intro {
+    /* to set with @media */
+  }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/sv_sv/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<form name="form" method="post" action="http://formmail.stockholmcykel.se">
+<input type="hidden" name="recipient" value="info@stockholmcykel.se">
+<input type="hidden" name="redirect" value="http://www.stockholmcykel.se/confirm.html">
+
+<div id="page_top" class="container-fluid top text-center">
+  <div>
+    <a href="#">
+      <img class="banner" src="images/banner.png" alt="stockholmcykel.se"</img>
+    </a> 
+</div>
+
+
+<nav class="navbar" data-spy="affix" data-offset-top="80">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">stockholmcykel.se</a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#section_start">Start</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Our Tours <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#section_guidedtours">The Guided Stockholm Tour</a></li>
+	      <li><a href="#section_selfguided_drottningholm">Drottningholm Castle - Self Guided Tour</a></li>
+              <li><a href="#section_selfguided_skogskyrkogarden">Skogskyrkog&aring;rden - Self Guided Tour</a></li>
+            </ul>
+          </li>
+          <li><a href="#section_booknow">Book now!</a></li>
+          <li><a href="#section_conditions">Conditions</a></li>
+          <li><a href="#section_maps">Our Maps</a></li>
+          <li><a href="#section_aboutus">About us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav> 
+
+<div id="section_start">
+  <div class="container">
+    <div class="row thumbnail">  
+      <div>
+        <div class="col-sm-12">
+          <h3 class="text-center" style="margin:0px;padding:30px 10px;background-color:#70d2dd;color:#ffffff">Bicycle Tours in Stockholm</h3>
+          <h5 class="text-center" style="margin:0px;padding:10px 10px;text-align:center;background-color:#34a5b2;color:#ffffff;">Guided and self-guided bicycle tours</h5>
+          <div>
+            <div id="topCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#topCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#topCarousel" data-slide-to="1"></li>
+                <li data-target="#topCarousel" data-slide-to="2"></li>
+                <li data-target="#topCarousel" data-slide-to="3"></li>
+                <li data-target="#topCarousel" data-slide-to="4"></li>
+                <li data-target="#topCarousel" data-slide-to="5"></li>
+                <li data-target="#topCarousel" data-slide-to="6"></li>
+                <li data-target="#topCarousel" data-slide-to="7"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="images/bildspel_top/top_1.jpg" alt="Biketours in Stockholm" width="265" height="265">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_top/top_2.jpg" alt="Biketours in Stockholm" width="265" height="265">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_top/top_3.jpg" alt="Biketours in Stockholm" width="265" height="265">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_top/top_4.jpg" alt="Biketours in Stockholm" width="265" height="265">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_top/top_5.jpg" alt="Biketours in Stockholm" width="265" height="265">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_top/top_6.jpg" alt="Biketours in Stockholm" width="265" height="265">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_top/top_9.jpg" alt="Biketours in Stockholm" width="265" height="265">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_top/top_10.jpg" alt="Biketours in Stockholm" width="265" height="265">
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#topCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#topCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+   
+<div id="section_guidedtours">
+  <div class="container">
+    <div class="row thumbnail">
+      <div class="col-sm-6">
+        <div>
+          <h2 class="text-center">The Guided Stockholm Tour</h2>
+          <p>Stockholm Cykel will guide you on a 15 kilometer bike tour through beautiful and exciting areas of Stockholm outside the common tourist routes. You will bike the narrow streets and beaches of S&ouml;der and other parts of Stockholm. From the bike seat we will discover the town in an easy pace. You will bike in a small group together with a local guide and we will do many stops when reaching interesting spots. The tour duration is 2-3 hours and the cost is 350 SEK.</p>
+          <p>Our bikes are modern multi-speed city bicycles. If you prefer to use your own bike, the cost is 250 SEK.</p>
+          <p>
+            <img src="images/icons/route_mini.png" class="img-responsive margin" style="display:inline;text-align:center;" alt="Route length"><span style="font-size: 12px;">15 km</span>
+            <img src="images/icons/duration_mini.png" class="img-responsive margin" style="display:inline;text-align:center;" alt="Duration"><span style="font-size: 12px;">2-3 hours</span>
+            <img src="images/icons/startPoint_mini.png" class="img-responsive margin" style="display:inline;text-align:center;" alt="Start Point"><span style="font-size: 12px;">Br&auml;nnkyrkagatan, S&ouml;dermalm</span>
+            <img src="images/icons/info_mini.png" class="img-responsive margin" style="display:inline;text-align:center;" alt="Price"><span style="font-size: 12px;">350 SEK</span>
+            <img src="images/icons/startDate_mini.png" class="img-responsive margin" style="display:inline;text-align:center;" alt="Start Dates"><span style="font-size: 12px;">Thursdays 5pm (April to August), Saturday 10am (April, September).</span>
+          </p>
+          <p class="text-center">
+             <a href="#section_booknow" class="btn btn-success" role="button">Book now!</a>
+          <p>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div>
+            <div id="myCarousel_stockholmtour" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel_stockholmtour" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel_stockholmtour" data-slide-to="1"></li>
+                <li data-target="#myCarousel_stockholmtour" data-slide-to="2"></li>
+                <li data-target="#myCarousel_stockholmtour" data-slide-to="3"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="images/bildspel_stockholmsturen/gotgatasbacken_265.png" alt="G&ouml;tgatsbacken" width="265" height="265">
+                </div>
+
+                <div class="item">
+                  <img src="images/bildspel_stockholmsturen/kolonilotter_265.png" alt="Kolonilotter" width="265" height="265">
+                </div>
+    
+                <div class="item">
+                   <img src="images/bildspel_stockholmsturen/arstaviken_265.png" alt="Årstaviken" width="265" height="265">
+                </div>
+
+                <div class="item">
+                   <img src="images/bildspel_stockholmsturen/soder_265.png" alt="S&ouml;der" width="265" height="265">
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel_stockholmtour" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel_stockholmtour" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="section_selfguided_drottningholm">
+  <div class="container">
+    <div class="row thumbnail">
+      <div class="col-sm-12">
+        <h2 class="text-center">Drottningholm Castle - Self-guided tour</h2>
+      </div>
+      <div class="col-sm-12">
+        <p class="text-center">Meet Lake M&auml;laren and Drottningholm Castle on two wheels!</p>
+      </div>
+      <div class="col-sm-6">
+        <p>On this self-guided day tour, you will bike through the changing landscape of the shores of <b>Lake M&auml;laren</b>. 
+           This is an easy tour on bike lanes or low traffic streets containing very few uphill sections.</p>
+	<p>You will meet a diversity of Swedish architecture, all from historical buildings to modern suburban areas. 
+           You may also observe some ancient monuments such as milestones.</p>
+	<p>On the tour you will pass <b>Drottningholm Castle</b>, the home of the royal family of Sweden. 
+	   In <b>Vinterviken</b> you may take a coffee break in the old factory of the industrialist <b>Alfred Nobel</b>, the founder of the Nobel Prize. 
+	   <b>Tantolunden</b> with its picturesqe allotment gardens is also a nice place for a break.</p>
+	<p>You will pass several nice outdoor baths and beaches so do not forget your swim suite!</p>
+      </div>
+      <div class="text-center col-sm-6">
+        <p>
+          <img src="images/drottningholm_overview_small.png" class="img-responsive" style="display:inline;text-align:center;" alt="Drottningholm Bike Rout Map overview" width="265" height="auto">
+        </p>
+        <p class="text-center">
+          <span class="label label-danger">Self-guided</span>
+          <span class="label label-info">One-day</span>
+          <span class="label label-primary">41 km</span>
+          <span class="label label-success">300 SEK</span>
+        </p>
+        <p class="text-center">
+          <a href="#section_booknow" class="btn btn-success" role="button">Book now!</a>
+        </p>
+      </div>
+
+      <div class="col-sm-12">
+      <div class="col-sm-6">
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Details</a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+              <div class="panel-body">
+                Self-guided, 1 day, 41 km, easy cycling on bike-routes or light traffic roads.
+                Mostly flat areas with only a few short climbs.  
+                <p>Price (1 day): 300 SEK</p>
+                <p>Price (additional day): 200 SEK</p>
+                <h6 class="bg-info">Departures</h6>
+                  <li>Start any day from April 1 to September 30 2017</li>
+                <h6 class="bg-info">Included</h6>
+                  <li>1 <a href="http://shop.stockholmcykel.se/product/drottningholm-bicycle-tour-map/" target="_blank">Bicycle Tour Map Drottningholm</a></li>
+                  <p>During the tour you will have access to:</p>
+                  <li>1 Trekkingbike 24 speed (mixed or male) with a map holder or a handle bar bag and a waterproof luggage rack bag.</li>
+                  <li>1 Helmet</li>
+                  <li>1 Visibility vest</li>
+                  <li>1 Bicycle lock</li>
+                <h6 class="bg-info">Not included</h6>
+                  <li>Entrance fee to Drottningholm Castle</li>
+                  <li>Ferry Jungfrusund-Slagsta</li>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Pickup and return
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+              <div class="panel-body">
+                <h6 class="bg-info">Where?</h6>
+                <p>You will pickup and return the bicycle at <a href="https://www.google.se/maps/place/stockholmcykel.se/@59.318394,18.052593,15z/data=!4m5!3m4!1s0x0:0xb78f4460ab741df2!8m2!3d59.318394!4d18.052593" target="_blank">Br&auml;nnkyrkagatan 76</a> (close to subway station Zinkensdamm). </p>
+		<a href="https://www.google.se/maps/place/stockholmcykel.se/@59.318394,18.052593,15z/data=!4m5!3m4!1s0x0:0xb78f4460ab741df2!8m2!3d59.318394!4d18.052593" target="_blank" class="btn btn-success" role="button">Find us on the map!</a>
+                <h6 class="bg-info">When?</h6>
+                Please note that Stockholm Cykel does not have an office with normal opening hours.
+                Therefore, pickup must be at an <b>agreed time</b>. Stockholm Cykel will wait at the most 15 minutes after agreed time for you to pickup the bike.</p>
+                <p>Pickup alternatives:
+                <li>Weekdays 8AM or 8PM (by agreement)</li>
+                <li>Weekends 10AM or 8PM (by agreement)</li>
+                </p>
+                <p>You will return the bike at the same place within 24 hours of the pickup.</p>
+                <h6 class="bg-info">Payment</h6>
+                <p>You will pay when picking up the bicycle. You are welcome to pay with credit card, in cash (only SEK) or with Swish.</p>
+                <p>If you pay in cash, you must bring a valid identification document, e.g. your passport, for granting access to the bicycle.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Bikes
+                </a>
+              </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>During the tour you will have access to a comportable 24 speed trekking bicycle from Ortler (mixed or male). 
+                   Click on the pictures below for details on the website of the manufacturer.
+                </p>
+                <p>
+                  <a href="http://www.ortler-rad.at/produkt/ortler-mainau-damen-schwarz-matt/" target="_blank">
+                    <img src="images/Ortler_Mainau_Damen_schwarz_matt1880x1320-940x660.jpg" class="img-responsive" style="display:inline;text-align:center;" alt="Ortler_Mainau_Damen_schwarz_matt1880x1320-940x660" width="200" height="auto">
+                  </a>
+                  <a href="http://www.ortler-rad.at/produkt/ortler-mainau-herren-schwarz-matt/" target="_blank">
+                    <img src="images/Ortler_Mainau_Herren_schwarz_matt1880x1320-940x660.jpg" class="img-responsive" style="display:inline;text-align:center;" alt="Drottningholm Bike Rout Map overview" width="200" height="auto">
+                  </a>          
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">How to book
+                </a>
+              </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>In our booking form please fill in:</p>
+                <li>Drottningholm - Self Guided Tour</li>
+                <li>Date: The pickup date of your choice</li>
+                <li>Number of participants: The number of bicycles needed for the tour (300 SEK per participant/bicycle)</li>
+                <li>Your contact info (name, email and phone)</li>
+                <li>Message: The pickup time of your choice, if you prefer mixed or male bicycle and if you like to add additional days.</li>
+                <p>We will return to you as soon as possible with details of availability.</p>
+                <p class="text-center">
+                  <a href="#section_booknow" class="btn btn-success" role="button">Book now!</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div>
+            <div id="myCarousel_selfguided" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel_selfguided" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel_selfguided" data-slide-to="1"></li>
+                <li data-target="#myCarousel_selfguided" data-slide-to="2"></li>
+                <li data-target="#myCarousel_selfguided" data-slide-to="3"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                   <img src="images/bildspel_drottningholm/drottningholm_265.png" alt="Stockholm Drottningholm Sverige" width="265" height="265">
+                </div>    
+                <div class="item">
+                   <img src="images/bildspel_drottningholm/ferry_265.png" alt="Stockholm Ekerö Sverige" width="265" height="265">
+                </div>
+                <div class="item">
+                   <img src="images/bildspel_drottningholm/page_265.png" alt="Stockholm Bicycle Tour Map Sverige" width="265" height="265">
+                </div>
+                <div class="item">
+                   <img src="images/bildspel_drottningholm/runsten_265.png" alt="Stockholm Ekerö Sverige Runsten" width="265" height="265">
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel_selfguided" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel_selfguided" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="section_selfguided_skogskyrkogarden">
+  <div class="container">
+    <div class="row thumbnail">
+      <div class="col-sm-12">
+        <h2 class="text-center">Skogskyrkog&aring;rden - Self-guided tour</h2>
+      </div>
+      <div class="col-sm-12">
+        <p class="text-center">World heritage Woodland Cemetery and Nacka nature reserve</p>
+      </div>
+      <div class="col-sm-6">
+        <p>On this self-guided day tour, you will bike through woodlands and on the shores of small lakes and <b>the Baltic Sea</b>. This is an easy tour on bike lanes or low traffic streets with very few uphill sections.</p> 
+        <p>On this tour you will pass the world heritage <b>Skogskyrkog&aring;rden</b> (the <b>Woodland Cemetery</b>), created by the architects Asplund and Lewerentz between 1917 and 1940. 
+The tour continues through the <b>Nacka nature reserve</b> and to the Baltic sea inlet of Stockholm.</p>
+        <p>You will see industrial areas such as shipyards and mills of Stockholm, currently transforming into modern contemporary 
+housing with excellent sea view.</p>
+        <p>You will also pass several nice open-air baths and beaches so do not forget your swim suite!</p>
+      </div>
+      <div class="text-center col-sm-6">
+        <p>
+          <img src="images/overview_skogskyrkogarden_small.png" class="img-responsive" style="display:inline;text-align:center;" alt="Skogskyrkog&aring;rden Bike Rout Map overview" width="265" height="auto">
+        </p>
+        <p class="text-center">
+          <span class="label label-danger">Self-guided</span>
+          <span class="label label-info">One-day</span>
+          <span class="label label-primary">30 km</span>
+          <span class="label label-success">300 SEK</span>
+        </p>
+        <p class="text-center">
+          <a href="#section_booknow" class="btn btn-success" role="button">Book now!</a>
+        </p>
+      </div>
+
+      <div class="col-sm-12">
+      <div class="col-sm-6">
+        <div class="panel-group" id="accordion2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2">Details</a>
+              </h4>
+            </div>
+            <div id="collapseOne2" class="panel-collapse collapse">
+              <div class="panel-body">
+                Self-guided, 1 day, 30 km, easy cycling on bike-routes or light traffic roads.
+                Mostly flat areas with only a few short climbs.  
+                <p>Price (1 day): 300 SEK</p>
+                <p>Price (additional day): 200 SEK</p>
+                <h6 class="bg-info">Departures</h6>
+                  <li>Start any day from April 1 to September 30 2017</li>
+                <h6 class="bg-info">Included</h6>
+                  <li>1 <a href="http://shop.stockholmcykel.se/product/skogskyrkogarden-bicycle-tour-map/" target="_blank">Bicycle Tour Map Skogskyrkog&aring;rden</a></li>
+                  <p>During the tour you will have access to:</p>
+                  <li>1 Trekkingbike 24 speed (mixed or male) with a map holder or a handle bar bag and a waterproof luggage rack bag.</li>
+                  <li>1 Helmet</li>
+                  <li>1 Visibility vest</li>
+                  <li>1 Bicycle lock</li>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2">Pickup and return
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <h6 class="bg-info">Where?</h6>
+                <p>You will pickup and return the bicycle at <a href="https://www.google.se/maps/place/stockholmcykel.se/@59.318394,18.052593,15z/data=!4m5!3m4!1s0x0:0xb78f4460ab741df2!8m2!3d59.318394!4d18.052593" target="_blank">Br&auml;nnkyrkagatan 76</a> (close to subway station Zinkensdamm). </p>
+		<a href="https://www.google.se/maps/place/stockholmcykel.se/@59.318394,18.052593,15z/data=!4m5!3m4!1s0x0:0xb78f4460ab741df2!8m2!3d59.318394!4d18.052593" target="_blank" class="btn btn-success" role="button">Find us on the map!</a>
+                <h6 class="bg-info">When?</h6>
+                Please note that Stockholm Cykel does not have an office with normal opening hours.
+                Therefore, pickup must be at an <b>agreed time</b>. Stockholm Cykel will wait at the most 15 minutes after agreed time for you to pickup the bike.</p>
+                <p>Pickup alternatives:
+                <li>Weekdays 8AM or 8PM (by agreement)</li>
+                <li>Weekends 10AM or 8PM (by agreement)</li>
+                </p>
+                <p>You will return the bike at the same place within 24 hours of the pickup.</p>
+                <h6 class="bg-info">Payment</h6>
+                <p>You will pay when picking up the bicycle. You are welcome to pay with credit card, in cash (only SEK) or with Swish.</p>
+                <p>If you pay in cash, you must bring a valid identification document, e.g. your passport, for granting access to the bicycle.</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree2">Bikes
+                </a>
+              </h4>
+            </div>
+            <div id="collapseThree2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>During the tour you will have access to a comportable 24 speed trekking bicycle from Ortler (mixed or male). 
+                   Click on the pictures below for details on the website of the manufacturer.
+                </p>
+                <p>
+                  <a href="http://www.ortler-rad.at/produkt/ortler-mainau-damen-schwarz-matt/" target="_blank">
+                    <img src="images/Ortler_Mainau_Damen_schwarz_matt1880x1320-940x660.jpg" class="img-responsive" style="display:inline;text-align:center;" alt="Ortler_Mainau_Damen_schwarz_matt1880x1320-940x660" width="200" height="auto">
+                  </a>
+                  <a href="http://www.ortler-rad.at/produkt/ortler-mainau-herren-schwarz-matt/" target="_blank">
+                    <img src="images/Ortler_Mainau_Herren_schwarz_matt1880x1320-940x660.jpg" class="img-responsive" style="display:inline;text-align:center;" alt="Drottningholm Bike Rout Map overview" width="200" height="auto">
+                  </a>          
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour2">How to book
+                </a>
+              </h4>
+            </div>
+            <div id="collapseFour2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <p>In our booking form please fill in:</p>
+                <li>Skogskyrkog&aring;rden - Self Guided Tour</li>
+                <li>Date: The pickup date of your choice</li>
+                <li>Number of participants: The number of bicycles needed for the tour (300 SEK per participant/bicycle)</li>
+                <li>Your contact info (name, email and phone)</li>
+                <li>Message: The pickup time of your choice, if you prefer mixed or male bicycle and if you like to add additional days.</li>
+                <p>We will return to you as soon as possible with details of availability.</p>
+                <p class="text-center">
+                  <a href="#section_booknow" class="btn btn-success" role="button">Book now!</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div>
+            <div id="myCarousel_selfguided2" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel_selfguided2" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel_selfguided2" data-slide-to="1"></li>
+                <li data-target="#myCarousel_selfguided2" data-slide-to="2"></li>
+                <li data-target="#myCarousel_selfguided2" data-slide-to="3"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                   <img src="images/bildspel_skogskyrkogarden/skogskyrkogarden_265.jpg" alt="Stockholm Skogskyrkogården Sverige" width="265" height="265">
+                </div>    
+                <div class="item">
+                   <img src="images/bildspel_skogskyrkogarden/nacka_reserve_265.jpg" alt="Stockholm Nacka nature reserve Sverige" width="265" height="265">
+                </div>
+                <div class="item">
+                   <img src="images/bildspel_skogskyrkogarden/nackanaturereserve_265.jpg" alt="Stockholm Nacka Nature Reserve Sverige" width="265" height="265">
+                </div>
+                <div class="item">
+                   <img src="images/bildspel_skogskyrkogarden/kvarnholmbron_265.jpg" alt="Stockholm Kvarnholmsbron Sverige" width="265" height="265">
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel_selfguided2" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel_selfguided2" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="section_booknow">
+  <div class="container">
+    <div class="row thumbnail">
+      <div>
+        <div class="col-sm-12">
+          <h2 class="text-center">Book now!</h2>
+          <p>Please fill in the form below and we will return to you as soon as possible with details of availability and exact starting point. Please note that <b>The Guided Stockholm Tour</b> only runs on Thursdays 5pm (April to August) or Saturdays 10am (September).</p>
+        </div>
+      </div>
+      <div>
+        <div class="col-sm-6 form-group">
+          <select class="form-control" id="tourselector" name="tour">
+            <option>The Guided Stockholm Tour</option>
+            <option>Drottningholm - Self Guided Tour</option>
+            <option>Skogskyrkog&aring;rden - Self Guided Tour</option>
+          </select>
+        </div>
+        <div class="col-sm-3 form-group">
+          <input type="text" class="form-control" id="datepicker" name="date" placeholder="Date" required>
+        </div>
+        <div class="col-sm-3 form-group">
+          <input type="number" class="form-control" id="numofparticipants" name="numofparticipants" placeholder="Number of participants" min="1" required>
+        </div>
+      </div>
+
+      <div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-3 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+        <div class="col-sm-3 form-group">
+          <input class="form-control" id="phone" name="phone" placeholder="Phone" type="tel">
+        </div>
+      </div>
+
+      <div>
+        <div class="col-sm-12 form-group">
+          <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+        </div>
+      </div>
+
+      <div>
+        <div class="col-sm-12 text-center">
+          <input id="enableSubmitCheck" type="checkbox">
+          I have read the <a href="#section_conditions" class="w3-text-blue">Terms and Conditions</a>.
+          <button id="submitBtn" class="btn btn-success" type="submit" disabled>Send</button>
+        </div>
+      </div>
+    </div>	
+  </div>
+</div>
+
+<div id="section_conditions">
+  <div class="container">
+    <div class="row thumbnail">  
+      <div class="col-sm-12">
+          <h2 class="text-center">Terms and Conditions/Lease Contract</h2>
+          <p>Company's legal name, address, phone number, email and organization number:<br>
+            Stockholm Cykel<br>
+            Simonsson Design<br>
+            &Ouml;rns&auml;trabacken 188<br>
+            SE-127 30 Sk&auml;rholmen<br>
+            Sweden<br>
+            +46(0)703139933, +46(0)769451437<br>
+            info@stockholmcykel.se<br>
+            Org no 590226-7862
+          </p>
+      </div>
+
+      <div class="col-sm-12">
+          <h4>Reservations</h4>
+          <p>A <b>guided tour</b> or a <b>self-guided tour</b> can be booked through the website of Stockholm Cykel (<a href="http://shop.stockholmcykel.se">http://www.stockholmcykel.se</a>). 
+             After receiving your booking request, Stockholm Cykel will reply with the cost and availability.</p>
+      </div>
+      <div class="col-sm-12">
+          <h4>Included in the tours</h4>
+          <p>
+            <li>The <b>guided tour</b> includes access to a bike, helmet and visibility vest</li>
+            <li>The <b>self-guided tour</b> includes a route map (to be kept by you) and lease of a bicycle, helmet, visibility vest, bicycle lock, front bag or map holder and a back luggage waterproof bag</li>
+          </p>
+      </div>
+ 
+      <div class="col-sm-12">
+          <h4>Payment</h4>
+          <p>
+            <li>You will pay for the <b>guided tour</b> when the tour starts</li>
+            <li>You will pay for the <b>self-guided tour</b> when you pick up the bike</li>
+          </p>
+          <p>You are welcome to pay with credit card, cash (only SEK) or Swish. 
+             If you pay with cash for a <b>self-guided tour</b> you must present a valid identification document (e.g. your passport) 
+             to grant access to the bike.
+          </p>
+      </div>
+      <div class="col-sm-12">
+          <h4>Leasing Period</h4>
+          <p>The bike for a <b>self-guided tour</b> may be leased per day. A leasing day counts as 24 hours 
+             meaning that if the bike is picked up at 8AM the leasing day ends at 8AM the next day.
+          </p>
+      </div>
+      <div class="col-sm-12">
+          <h4>Status of the bike</h4>
+          <p>Stockholm Cykel confirms that the bike is prepared for lease 
+             and supplied to you in proper operating status, and is ready to ride.
+          </p>
+      </div>
+      <div class="col-sm-12">
+          <h4>Repairs or problems during the rental</h4>
+          <p>If the bike breaks during the tour, you must leave the bike locked 
+             and inform Stockholm Cykel of the location and details of the problem. Stockholm Cykel will not 
+             replace or repair the bike but will advice on how you can get back to the starting point of your tour (e.g. busses/subway).
+          </p>
+      </div>
+      <div class="col-sm-12">
+          <h4>Lease Contract</h4>
+          <p>The party to this agreement is Stockholm Cykel. To hire a bike you must be at least 18 years of age and accept 
+             the following terms and conditions:
+          </p>
+          <p>
+            <li>It is your responsibility to follow the current traffic regulations. Injury to yourself and others, and damage to property, is also your responsibility when you hire a bike</li>
+            <li>You are personally responsible for the bike until it has been correctly returned</li>
+            <li>You will return the bike in good condition to Stockholm Cykel and report any damages</li>
+            <li>If you do not return the bike and/or associated items (bags, helmet, locks) you will pay the full current value of the items</li>
+            <li>Theft/loss of a bike must immediately be reported to Stockholm Cykel. You are obliged to cooperate with Stockholm Cykel and to fill in a police report</li>
+          </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="section_maps">
+  <div class="container">
+    <div class="row thumbnail">
+      <h2 class="text-center">Our Maps</h2>
+      <div class="col-sm-8">
+        <div>
+          <p>Stockholm Cykel have carefully tried out and produced following bicycle maps suitable as your companion on self-guided bicycle tours in the Stockholm area:</p>
+          <li>Drottningholm Castle - 41 kilometer one-day-tour</li>
+          <li>Skogskyrkog&aring;rden - 30 kilometer one-day-tour</li>  
+          <p>Included is also a gpx-track for your smart phone.</p>
+          <p>For details and ordering of the map, please visit our <a href="http://shop.stockholmcykel.se">webshop.</a></p>
+          <p class="text-center">
+             <a href="http://shop.stockholmcykel.se" class="btn btn-success" role="button">To webshop</a>
+          <p>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div>
+          <p>
+            <img src="images/bildspel_drottningholm/page_265.png" class="img-responsive margin" style="display:inline;text-align:center;" alt="Detailed map page" width="265" height="265">
+	  </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="section_aboutus">
+  <div class="container">
+    <!-- First Row -->
+    <div class="row thumbnail">
+      <div class="col-sm-4">
+        <div>
+          <h2 class="text-center">About us</h2>
+          <p><span style="font-size: 14px;">During the past 15 years, we have discovered new places around the world by bicycle. Now we would like to offer you similar experiences in our hometown Stockholm.</span></p>
+          <p><span style="font-size: 14px;">Looking forward to bike with you!</span></p>
+          <p><span style="font-size: 14px;">Tor and Kerstin Simonsson</span></p>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div>
+          <h2 class="text-center">Contact</h2>
+          <p><span style="font-size: 14px;">
+            Stockholm Cykel<br>
+            Simonsson Design<br>
+            &Ouml;rns&auml;trabacken 188<br>
+            SE-127 30 Sk&auml;rholmen<br>
+            Sweden<br>
+            +46(0)70 313 9933, +46(0)76 945 1437<br>
+            Simonsson Design<br>
+            info@stockholmcykel.se<br>
+            Instagram: @stockholmcykel<br>
+          </span></p>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div>
+            <h2 class="text-center">We like to bike</h2>
+            <div id="myCarousel_simonsson" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel_simonsson" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel_simonsson" data-slide-to="1"></li>
+                <li data-target="#myCarousel_simonsson" data-slide-to="2"></li>
+                <li data-target="#myCarousel_simonsson" data-slide-to="3"></li>
+                <li data-target="#myCarousel_simonsson" data-slide-to="4"></li>
+                <li data-target="#myCarousel_simonsson" data-slide-to="5"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="images/bildspel_simonsson/aix_640x360.png" alt="Aix en Provence" width="auto" height="360">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_simonsson/longisland_640x360.png" alt="Long Island" width="auto" height="360">
+                </div>   
+                <div class="item">
+                  <img src="images/bildspel_simonsson/nyc_640x360.png" alt="New York Manhattan" width="auto" height="360">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_simonsson/nyc2_640x360.png" alt="New York Queensboro Bridge" width="auto" height="360">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_simonsson/toro_640x360.png" alt="Tor&ouml; Handel Nyn&auml;shamn" width="auto" height="360">
+                </div>
+                <div class="item">
+                  <img src="images/bildspel_simonsson/toro2_640x360.png" alt="Tor&ouml; Nyn&auml;shamn" width="auto" height="360">
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel_simonsson" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel_simonsson" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="marginbottom">
+  <div class="container">
+    <div class="row">  
+      <div class="fb-like" 
+		data-href="http://www.stockholmcykel.se/index.html" 
+		data-layout="standard" 
+		data-action="like" 
+		data-show-faces="true">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center w3-small">
+  <a href="http://www.kammarkollegiet.se/rattsavdelningen/resegarantier/kolla-din-researrangor" target="_blank">
+    <img src="images/resegaranti250x150.jpg" class="banner img-responsive" style="display:inline;text-align:center;" alt="resegaranti">
+  </a>
+</div>
+
+<div class="text-center w3-small footer">
+  <a target="_blank" href="https://www.google.se/maps/place/stockholmcykel.se/@59.318394,18.052593,15z/data=!4m5!3m4!1s0x0:0xb78f4460ab741df2!8m2!3d59.318394!4d18.052593"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;Stockholm, Sweden</a>
+  <span class="glyphicon glyphicon-phone"></span>&nbsp;+46(0)70 313 9933&nbsp;
+  <a target="_blank" href="mailto:info@stockholmcykel.se"><span class="glyphicon glyphicon-envelope"></span></a>&nbsp;
+  <a target="_blank" href="http://www.instagram.com/stockholmcykel"><span class="fa fa-instagram"></span></a>
+  <a target="_blank" href="http://www.facebook.com/stockholmcykel"><span class="fa fa-facebook"></span></a>
+  <span class="TA_socialButtonIcon">
+  <a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g189852-d12072064-Reviews-Stockholm_Cykel-Stockholm.html">
+    <img src="https://www.tripadvisor.com/img/cdsi/img2/branding/socialWidget/20x28_green-21690-2.png"/>
+  </a>
+  </span>
+</div>
+
+
+
+</form>
+</body>
+</html>
+

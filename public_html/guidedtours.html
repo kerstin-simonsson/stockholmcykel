@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <title>Bicycle Tours in Stockholm | Cykelturer i Stockholm - stockholmcykel.se</title>
+
+    <meta name="keywords" content="guidedtour,bicycletour,cykeltur,guided,tour,bike,sightseeing,stockholm,fahrrad,radfahren,cykla,sverige,radeln,sweden,schweden">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.png" sizes="16x16" type="image/png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+
+    <style>
+
+    body {
+      font: 14px "Century Gothic", Futura, sans-serif;
+      margin: 0px;
+      padding: 0px;
+      background-color: #0288D1;
+    }
+
+    </style>
+
+  </head>
+
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+
+      class Navigator extends React.Component {
+        render() {
+          return (
+            <div>
+              Navigator
+            </div> 
+          );
+        }
+      }
+
+      function SubPage() {
+        return (
+           <div className="main-container">
+             <div>
+               <Navigator />
+             </div>
+          </div>
+        );
+      }
+ 
+      ReactDOM.render(
+        <SubPage />,
+        document.getElementById('root')
+      );
+
+    </script>
+
+  </body>
+
+</html>
